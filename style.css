@@ -1,6 +1,7 @@
 /********* main *********/
 html, body {
 	height: 100%;
+    background-color: #202023;
 }
 
 body {
@@ -116,17 +117,13 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, a, input {
         -moz-animation: blink 0.3s ease infinite alternate;
     }
 
-    @-moz-keyframes blink {
+    @keyframes blink {
         from { opacity: 0 }
         to { opactiy: 1 }
     }
 
-    @-webkit-keyframes blink {
-        from { opacity: 0 }
-        to { opactiy: 1 }
-    }
 
-    @-moz-keyframes dropTop {
+    @keyframes dropTop {
         from {
             -moz-transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg);
             transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg);
@@ -138,27 +135,20 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, a, input {
         }
     }
 
-    @-moz-keyframes dropBottom {
+    @keyframes dropBottom {
         from {
             -moz-transform: translateY(20px) translateZ(20px) rotateX(-90deg);
             transform: translateY(20px) translateZ(20px) rotateX(-90deg);
         }
 
         to {
-            -moz-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+            -moz-transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg);
+            transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg);
         }
     }
 
-    @-webkit-keyframes dropTop {
-        from { -webkit-transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg); }
-        to { -webkit-transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg); }
-}
 
-    @-webkit-keyframes dropBottom {
-        from { -webkit-transform: translateY(20px) translateZ(20px) rotateX(-90deg); }
-        to { -webkit-transform: rotateX(0deg); }
-    }
+
 
 /********* rotate your screen and password screen icon ********/
 .turn-device, .password-form {
@@ -198,19 +188,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, a, input {
     transform: translateY(-50%) translateX(-50%);
 }
 
-@media screen and (orientation:portrait) and (max-width:650px) { 
- .turn-device {display:block;}
-}
 
-
-@media screen and (orientation:landscape) and (max-width: 800px) { 
- .flickity-prev-next-button {display:none;}
-}
-
-@media screen and (max-width:800px) {
-    .password-form img {margin-top:10vh;}
-    #clickme {display:block;}
-}
 
 
 /********* flickity modifiers **********/
@@ -249,6 +227,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, a, input {
 
 
 /* backgrounds for specific slides */
+/*
 .carousel-cell:nth-of-type(1) {
 	background-color: #FD7F47;
 }
@@ -287,17 +266,17 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, a, input {
 
 .carousel-cell:nth-of-type(14):before {content: '';height: 100%;background: #3EC99B;left: 0;position: absolute;width: 100%;z-index: -1;}
 
-/*.carousel-cell:nth-of-type(14):after {content: '';height: 100%;background: #CCCCCA;right: 0;position: absolute;width: 50%;z-index: -1;}*/
+.carousel-cell:nth-of-type(14):after {content: '';height: 100%;background: #CCCCCA;right: 0;position: absolute;width: 50%;z-index: -1;}
 
 
 .carousel-cell:nth-of-type(15):before {content: '';height: 100%;background: #50916F;left: 0;position: absolute;width: 100%;z-index: -1;}
 
-/*.carousel-cell:nth-of-type(15):after {content: '';height: 100%;background: #73DAB9;right: 0;position: absolute;width: 50%;z-index: -1;}*/
+.carousel-cell:nth-of-type(15):after {content: '';height: 100%;background: #73DAB9;right: 0;position: absolute;width: 50%;z-index: -1;}
 
 
 .carousel-cell:nth-of-type(16):before, .carousel-cell:nth-of-type(17):before {content: '';height: 100%;background: #E6E44F;left: 0;position: absolute;width: 100%;z-index: -1;}
 
-/*.carousel-cell:nth-of-type(16):after,.carousel-cell:nth-of-type(17):after {content: '';height: 100%;background: #FFF95D;right: 0;position: absolute;width: 50%;z-index: -1;}*/
+.carousel-cell:nth-of-type(16):after,.carousel-cell:nth-of-type(17):after {content: '';height: 100%;background: #FFF95D;right: 0;position: absolute;width: 50%;z-index: -1;}
 
 
 .carousel-cell:nth-of-type(18) {
@@ -310,9 +289,33 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, a, input {
 
 .carousel-cell:nth-of-type(29), .carousel-cell:nth-of-type(30){
 	background-color: #ccccca;
+} */
+
+.carousel-cell {
+    background-color: #202023;
 }
 
 
 
-// img.carousel-cell-image.flickity-lazyloaded {width:100%;}
+/* responsive rules */
+@media screen and (orientation:portrait) and (max-width:650px) { 
+ .turn-device {display:block;}
+}
 
+
+@media screen and (orientation:landscape) and (max-width: 800px) { 
+ .blink {display:none;}
+ body, html {
+    height:120%;
+    max-height: 120vh;
+ }
+}
+
+@media screen and (max-width:800px) {
+    .flickity-prev-next-button {display:none;}
+    .password-form img {margin-top:10vh;}
+    #clickme {display:block;}
+    #input {font-size:1.3em;}
+    .blink {display:none;}
+    .main-carousel {height: 84%; }
+}

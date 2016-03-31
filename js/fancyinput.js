@@ -3,7 +3,7 @@
 
     var keypass = "secret";
     var success = "you're in!";
-    var greeting = "hello! type the password";
+    var greeting = "hello! type the password ";
     var passwordContainer = "password-form";
     var input;
     var cursor;
@@ -131,6 +131,7 @@
                     if (targetContent.toLowerCase() === keypass && !inputLock) {
                         console.log('bingo');
                         hiddenInput.value = "";
+                        lastContent= "";
                         targetContent=success;
                         refresh(false);
                     }
@@ -161,4 +162,5 @@
     }
 
 })();
+
 
